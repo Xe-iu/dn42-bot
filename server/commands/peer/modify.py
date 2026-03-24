@@ -12,6 +12,7 @@ from telebot.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemo
 
 @bot.message_handler(commands=["modify"], is_private_chat=True)
 def start_modify(message):
+    return
     step_manage("init", {}, None, message)
 
 

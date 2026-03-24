@@ -10,6 +10,7 @@ from telebot.types import ReplyKeyboardRemove
 
 @bot.message_handler(commands=["peer"], is_private_chat=True)
 def start_peer(message):
+    return
     peer_info = {
         "Region": None,
         "ASN": None,

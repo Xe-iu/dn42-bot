@@ -7,6 +7,7 @@ from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeybo
 
 @bot.message_handler(commands=["whoami"], is_private_chat=True)
 def whoami(message, new_asn=None, info_node=None):
+    return
     if new_asn and message.chat.id not in db_privilege:
         if message.chat.id not in db:
             markup = InlineKeyboardMarkup()

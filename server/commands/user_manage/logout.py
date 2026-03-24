@@ -7,6 +7,7 @@ from telebot.types import ReplyKeyboardRemove
 
 @bot.message_handler(commands=["logout"], is_private_chat=True)
 def start_logout(message):
+    return
     if message.chat.id not in db:
         tools.gen_login_message(message)
         return

@@ -49,6 +49,7 @@ def get_email(asn):
 
 @bot.message_handler(commands=["login"], is_private_chat=True)
 def start_login(message):
+    return
     if message.chat.id in db:
         bot.send_message(
             message.chat.id,

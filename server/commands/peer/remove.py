@@ -11,6 +11,7 @@ from telebot.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemo
 
 @bot.message_handler(commands=["remove"], is_private_chat=True)
 def remove_peer(message):
+    return
     if message.chat.id not in db:
         tools.gen_login_message(message)
         return
