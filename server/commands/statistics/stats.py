@@ -63,7 +63,7 @@ def stats(message):
             bot.reply_to(
                 message,
                 "Usage: /stats [asn]\n用法：/stats [asn]",
-                reply_markup=tools.gen_peer_me_markup(message),
+                #reply_markup=tools.gen_peer_me_markup(message),
             )
             return
     update_time, stats_result = get_stats(asn)
@@ -85,12 +85,12 @@ def stats(message):
                 f"{update_str}"
             ),
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
     else:
         bot.reply_to(
             message,
             f"```Statistics\nNo data available.\n暂无数据。```{update_str}",
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )

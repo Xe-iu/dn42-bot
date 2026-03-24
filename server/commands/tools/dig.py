@@ -25,7 +25,7 @@ def dig(message):
             message,
             help_text,
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            ##reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     dig_server = ""
@@ -54,7 +54,7 @@ def dig(message):
             message,
             help_text,
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            ##reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     if dig_server:
@@ -64,7 +64,7 @@ def dig(message):
             bot.reply_to(
                 message,
                 "Invalid DNS server.\n无效的 DNS 服务器。",
-                reply_markup=tools.gen_peer_me_markup(message),
+                ##reply_markup=tools.gen_peer_me_markup(message),
             )
             return
         if DN42_ONLY and not any(
@@ -78,7 +78,7 @@ def dig(message):
             bot.reply_to(
                 message,
                 "Only accept DN42 DNS server.\n只接受 DN42 DNS 服务器。",
-                reply_markup=tools.gen_peer_me_markup(message),
+                #reply_markup=tools.gen_peer_me_markup(message),
             )
             return
         dig_server = f" @{dig_server}"
@@ -88,7 +88,7 @@ def dig(message):
         bot.reply_to(
             message,
             "Invalid domain.\n无效的域名。",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     if DN42_ONLY and not dig_target.endswith(".dn42"):
@@ -96,7 +96,7 @@ def dig(message):
             message,
             "Only accept `.dn42` domain.\n只接受 `.dn42` 域名。",
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     if dig_type not in dig_type_whitelist:
@@ -104,7 +104,7 @@ def dig(message):
             message,
             help_text,
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
@@ -134,19 +134,19 @@ def dig(message):
                     last_msg,
                     f"```DigResult\n{m}```To be continued...",
                     parse_mode="Markdown",
-                    reply_markup=tools.gen_peer_me_markup(message),
+                    #reply_markup=tools.gen_peer_me_markup(message),
                 )
             else:
                 bot.reply_to(
                     last_msg,
                     f"```DigResult\n{m}```",
                     parse_mode="Markdown",
-                    reply_markup=tools.gen_peer_me_markup(message),
+                    #reply_markup=tools.gen_peer_me_markup(message),
                 )
     else:
         bot.reply_to(
             message,
             f"```DigResult\n{dig_result}```",
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )

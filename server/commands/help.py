@@ -16,8 +16,14 @@ def send_welcome(message):
             "You can always use /cancel to interrupt current operation.\n"
             "你始终可以使用 /cancel 终止当前正在进行的操作。\n"
             "\n"
-            f"When something unexpected happens or the bot can't meet your needs, please contact {config.CONTACT}\n"
-            f"当出现了什么意料之外的，或者机器人无法满足你的需求，请联系 {config.CONTACT}"
+            f"If you need to peer with me, please go to the {config.CONTACT} channel and use the direct messaging feature to get in touch.\n"
+            f"如需与我peer，请到 {config.CONTACT} 频道使用直通消息功能进行联系。\n"
+            "\n"
+            f"When something unexpected occurs, or the bot cannot meet your needs, please go to the channel {config.CONTACT} and use the direct messaging feature to get in touch.\n"
+            f"当出现了什么意料之外的，或者机器人无法满足你的需求，请到频道 {config.CONTACT} 使用直通消息功能进行联系。\n"
+            "\n"
+            f"The administrator is {config.CONTACT_MASTER}. Unless necessary, please do not contact the administrator directly. Instead, go to the {config.CONTACT} channel and use the direct messaging feature to get in touch.\n"
+            f"管理员为 {config.CONTACT_MASTER} 。非必要请不要直接联系管理员，请到频道 {config.CONTACT} 使用直通消息功能进行联系。"
         ),
         parse_mode="Markdown",
         reply_markup=ReplyKeyboardRemove(),

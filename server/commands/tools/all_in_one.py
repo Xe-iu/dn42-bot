@@ -43,7 +43,7 @@ def generaltest_callback_query(call):
             parse_mode="Markdown",
             chat_id=call.message.chat.id,
             message_id=call.message.message_id,
-            reply_markup=gen_generaltest_markup(call.message.chat, data_id, node, list(data.keys())),
+            #reply_markup=gen_generaltest_markup(call.message.chat, data_id, node, list(data.keys())),
         )
     except BaseException:
         pass
@@ -91,7 +91,7 @@ def generaltest(message):
                 f"Usage: /{cmd} [ip/domain]{addon} {{node1}} {{node2}} ...\n"
                 f"用法：/{cmd} [ip/domain]{addon} {{node1}} {{node2}} ..."
             ),
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
@@ -109,14 +109,14 @@ def generaltest(message):
         bot.reply_to(
             message,
             "IP is incorrect or domain can'no't be resolved\nIP 不正确或域名无法被解析",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     if config.DN42_ONLY and not parsed_info.dn42:
         bot.reply_to(
             message,
             "IP/Domain not in DN42\nIP/域名不属于 DN42",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     if command.endswith("4"):
@@ -127,7 +127,7 @@ def generaltest(message):
             bot.reply_to(
                 message,
                 "Not IPv4 address or domain can't resolve IPv4 record\n不是 IPv4 地址或域名无法解析出 IPv4 记录",
-                reply_markup=tools.gen_peer_me_markup(message),
+                #reply_markup=tools.gen_peer_me_markup(message),
             )
             return
     elif command.endswith("6"):
@@ -138,7 +138,7 @@ def generaltest(message):
             bot.reply_to(
                 message,
                 "Not IPv6 address or domain can't resolve IPv6 record\n不是 IPv6 地址或域名无法解析出 IPv6 记录",
-                reply_markup=tools.gen_peer_me_markup(message),
+                #reply_markup=tools.gen_peer_me_markup(message),
             )
             return
     else:
@@ -252,5 +252,5 @@ def generaltest(message):
         parse_mode="Markdown",
         chat_id=message.chat.id,
         message_id=msg.message_id,
-        reply_markup=gen_generaltest_markup(message.chat, data_id, specific_server[0], specific_server),
+        #reply_markup=gen_generaltest_markup(message.chat, data_id, specific_server[0], specific_server),
     )

@@ -19,7 +19,7 @@ def peer_list(message):
             bot.reply_to(
                 message,
                 f"Usage: /{command} [asn]\n用法：/{command} [asn]",
-                reply_markup=tools.gen_peer_me_markup(message),
+                #reply_markup=tools.gen_peer_me_markup(message),
             )
             return
     update_time, _, peer_map = tools.get_map()
@@ -31,7 +31,7 @@ def peer_list(message):
             message,
             f"```PeerList\nNo data available.\n暂无数据。```{update_str}",
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     else:
@@ -47,19 +47,19 @@ def peer_list(message):
                     last_msg,
                     f"```PeerList\n{m}```To be continued...",
                     parse_mode="Markdown",
-                    reply_markup=tools.gen_peer_me_markup(message),
+                    #reply_markup=tools.gen_peer_me_markup(message),
                 )
             else:
                 bot.reply_to(
                     last_msg,
                     f"```PeerList\n{m}````{len(peer_map[asn])}` peers in total\n{update_str}",
                     parse_mode="Markdown",
-                    reply_markup=tools.gen_peer_me_markup(message),
+                    #reply_markup=tools.gen_peer_me_markup(message),
                 )
     else:
         bot.reply_to(
             message,
             f"```PeerList\n{msg}````{len(peer_map[asn])}` peers in total\n{update_str}",
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )

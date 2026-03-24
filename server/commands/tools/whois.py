@@ -29,7 +29,7 @@ def whois(message):
         bot.reply_to(
             message,
             "Usage: /whois [something]\n用法：/whois [something]",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     whois_str = message.text.split()[1]
@@ -46,7 +46,7 @@ def whois(message):
                 f"`{allowed_punctuation}`\n"
             ),
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
         return
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
@@ -116,19 +116,19 @@ def whois(message):
                     last_msg,
                     f"```WhoisResult\n{m}```To be continued...",
                     parse_mode="Markdown",
-                    reply_markup=tools.gen_peer_me_markup(message),
+                    #reply_markup=tools.gen_peer_me_markup(message),
                 )
             else:
                 bot.reply_to(
                     last_msg,
                     f"```WhoisResult\n{m}```",
                     parse_mode="Markdown",
-                    reply_markup=tools.gen_peer_me_markup(message),
+                    #reply_markup=tools.gen_peer_me_markup(message),
                 )
     else:
         bot.reply_to(
             message,
             f"```WhoisResult\n{whois_result}```",
             parse_mode="Markdown",
-            reply_markup=tools.gen_peer_me_markup(message),
+            #reply_markup=tools.gen_peer_me_markup(message),
         )
