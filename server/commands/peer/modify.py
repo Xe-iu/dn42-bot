@@ -13,11 +13,15 @@ from telebot.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemo
 @bot.message_handler(commands=["modify"], is_private_chat=True)
 def start_modify(message):
     bot.send_message(
-            message.chat.id,
-            "This command has been disabled.\n该指令已被禁用。\n",
-            f"If you need to peer with me, please go to the {config.CONTACT} channel and use the direct messaging feature to get in touch.\n"
-            f"如需与我peer，请到 {config.CONTACT} 频道使用直通消息功能进行联系。"
-        )
+        message.chat.id,
+        (
+        "This command has been disabled.\n该指令已被禁用。\n",
+        f"If you need to peer with me, please go to the {config.CONTACT} channel and use the direct messaging feature to get in touch.\n"
+        f"如需与我peer，请到 {config.CONTACT} 频道使用直通消息功能进行联系。"
+        ),
+        parse_mode="Markdown",
+        reply_markup=ReplyKeyboardRemove(),
+    )
     return
     step_manage("init", {}, None, message)
 
