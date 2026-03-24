@@ -20,7 +20,7 @@ def gen_generaltest_markup(chat, data_id, node, available_nodes):
     if chat.type == "private" and chat.id in db:
         if tools.get_info(db[chat.id]):
             return markup
-    markup.row(InlineKeyboardButton("Peer with me | 与我 Peer", url=f"https://t.me/{bot.get_me().username}"))
+    #markup.row(InlineKeyboardButton("Peer with me | 与我 Peer", url=f"https://t.me/{bot.get_me().username}"))
     return markup
 
 
@@ -34,7 +34,7 @@ def generaltest_callback_query(call):
             "The result is expired, please run it again.\n结果已失效，请重新运行。",
             chat_id=call.message.chat.id,
             message_id=call.message.message_id,
-            reply_markup=tools.gen_peer_me_markup(call.message),
+            #reply_markup=tools.gen_peer_me_markup(call.message),
         )
         return
     try:
@@ -43,7 +43,7 @@ def generaltest_callback_query(call):
             parse_mode="Markdown",
             chat_id=call.message.chat.id,
             message_id=call.message.message_id,
-            #reply_markup=gen_generaltest_markup(call.message.chat, data_id, node, list(data.keys())),
+            reply_markup=gen_generaltest_markup(call.message.chat, data_id, node, list(data.keys())),
         )
     except BaseException:
         pass
@@ -252,5 +252,5 @@ def generaltest(message):
         parse_mode="Markdown",
         chat_id=message.chat.id,
         message_id=msg.message_id,
-        #reply_markup=gen_generaltest_markup(message.chat, data_id, specific_server[0], specific_server),
+        reply_markup=gen_generaltest_markup(message.chat, data_id, specific_server[0], specific_server),
     )
