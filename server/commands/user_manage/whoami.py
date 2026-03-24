@@ -7,6 +7,10 @@ from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeybo
 
 @bot.message_handler(commands=["whoami"], is_private_chat=True)
 def whoami(message, new_asn=None, info_node=None):
+    bot.send_message(
+            message.chat.id,
+            "This command has been disabled.\n该指令已被禁用。",
+        )
     return
     if new_asn and message.chat.id not in db_privilege:
         if message.chat.id not in db:

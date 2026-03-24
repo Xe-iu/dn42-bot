@@ -49,6 +49,10 @@ def get_email(asn):
 
 @bot.message_handler(commands=["login"], is_private_chat=True)
 def start_login(message):
+    bot.send_message(
+            message.chat.id,
+            "This command has been disabled.\n该指令已被禁用。",
+        )
     return
     if message.chat.id in db:
         bot.send_message(

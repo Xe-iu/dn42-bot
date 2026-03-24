@@ -10,6 +10,10 @@ from telebot.types import ReplyKeyboardRemove
 
 @bot.message_handler(commands=["peer"], is_private_chat=True)
 def start_peer(message):
+    bot.send_message(
+            message.chat.id,
+            "This command has been disabled.\n该指令已被禁用。",
+        )
     return
     peer_info = {
         "Region": None,

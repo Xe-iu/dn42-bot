@@ -11,6 +11,10 @@ from telebot.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemo
 
 @bot.message_handler(commands=["remove"], is_private_chat=True)
 def remove_peer(message):
+    bot.send_message(
+            message.chat.id,
+            "This command has been disabled.\n该指令已被禁用。",
+        )
     return
     if message.chat.id not in db:
         tools.gen_login_message(message)

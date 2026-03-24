@@ -73,7 +73,9 @@ def get_flaps_text(page, rank_type):
                 f"  FirstSeen: {first_seen}"
             )
         )
-    return f"```Flaps\n{'\n\n'.join(msg)}\n```Updated {time_delta}s ago\n({update_time})"
+    joined_msg = "\n\n".join(msg)
+    return f"```Flaps\n{joined_msg}\n```Updated {time_delta}s ago\n({update_time})"
+
 
 
 @bot.callback_query_handler(func=lambda call: call.data.startswith("flaps_"))
