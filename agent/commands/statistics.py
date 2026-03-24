@@ -7,7 +7,7 @@ from tools import set_sentry, simple_run
 
 
 @base.routes.post("/ping")
-@set_sentry
+#@set_sentry
 async def ping_test(request):
     secret = request.headers.get("X-DN42-Bot-Api-Secret-Token")
     if secret == base.SECRET:
@@ -22,7 +22,7 @@ async def ping_test(request):
 
 
 @base.routes.post("/trace")
-@set_sentry
+#@set_sentry
 async def trace_test(request):
     secret = request.headers.get("X-DN42-Bot-Api-Secret-Token")
     if secret == base.SECRET:
@@ -48,7 +48,7 @@ async def trace_test(request):
 
 
 @base.routes.post("/tcping")
-@set_sentry
+#@set_sentry
 async def tcping_test(request):
     secret = request.headers.get("X-DN42-Bot-Api-Secret-Token")
     if secret == base.SECRET:
@@ -64,7 +64,7 @@ async def tcping_test(request):
 
 
 @base.routes.post("/route")
-@set_sentry
+#@set_sentry
 async def get_route(request):
     secret = request.headers.get("X-DN42-Bot-Api-Secret-Token")
     if secret == base.SECRET:
@@ -82,7 +82,7 @@ async def get_route(request):
 
 
 @base.routes.post("/path")
-@set_sentry
+#@set_sentry
 async def get_path(request):
     secret = request.headers.get("X-DN42-Bot-Api-Secret-Token")
     if secret == base.SECRET:
