@@ -1,5 +1,5 @@
 import pickle
-
+import config
 import tools
 from base import bot, db, db_privilege
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardRemove
